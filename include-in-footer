@@ -1,0 +1,15 @@
+            <div class="footer_bottom_">
+            <div class="footer__copyright caption">
+            <small class="copyright__content">copyright&copy; {{ 'now' | date: "%Y" }}, {{ shop.name | link_to: routes.root_url }}</small>
+            {% comment %}   <small class="copyright__content">{{ powered_by_link }}</small> {% endcomment %}
+            </div>
+            {%- if section.settings.show_nav -%}
+            {%- assign menu = section.settings.menu -%}
+            {%- if menu != blank -%}
+            <ul id="footer-menu" class="clearfix">
+            {%- for link in linklists[menu].links -%}<li class="menu-item{% if link.active %} current-menu-item{% endif %}"><a href="{{ link.url }}">{{ link.title | split: '[' | first }}</a></li>{%- endfor -%}
+            </ul>
+            {%- else -%}Pick a linked list to show here.
+            {%- endif -%}
+            {% endif %}
+            </div>
